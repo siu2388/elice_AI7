@@ -1,0 +1,22 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: grey;
+}
+li {
+  list-style: none;
+  display: flex;
+}
+li a {
+  color: white;
+  text-decoration: none;
+}
+footer {
+  background-color: rgb(181, 184, 187);
+}
