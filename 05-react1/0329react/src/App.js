@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import './App.css';
+import "./App.css";
+import counterStyle from "./Counter.module.css";
+console.log("counterStyle", counterStyle);
 
 function Counter({ title, initValue }) {
   const [count, setCount] = useState(initValue);
@@ -13,14 +15,17 @@ function Counter({ title, initValue }) {
     // });
   }
   // //react css 입히는 법 div={design} 사용
-  // const design={
-  //   border:'5px solid red',
-  //   backgroundColor:'lightgray'
-  // }
+  const design = {
+    border: "5px solid red",
+    backgroundColor: "lightgray",
+  };
   return (
-    <div>
-      <h1 className='title'>{title}</h1>
-      <button onClick={up}>+</button> {count}
+    <div style={design}>
+      <h1 className="title">{title}</h1>
+      <button onClick={up} className={counterStyle.rightSpace}>
+        +
+      </button>{" "}
+      {count}
     </div>
   );
 }
