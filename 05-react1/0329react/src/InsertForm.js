@@ -26,7 +26,7 @@ const InsertForm = ({ onInsert }) => {
           setInputValue(event.target.value);
         }}
       />
-      <button>등록</button>
+      <button type="submit">등록</button>
     </form>
   );
 };
