@@ -1,16 +1,17 @@
+import Link from 'next/link';
 export default function Home(props) {
   console.log('props', props)
   return (
     <>
       <h1>
-        <a href="/">WEB</a>
+        <Link href="/">WEB</Link>
       </h1>
       <ol>
         <li>
-          <a href="/read/1">HTML</a>{" "}
+          <Link href="/read/1">HTML</Link>{" "}
         </li>
         <li>
-          <a href="/read/2">CSS</a>
+          <Link href="/read/2">CSS</Link>
         </li>
         <li>
           <a href="/read/3">JavaScript</a>
@@ -21,13 +22,13 @@ export default function Home(props) {
       </article>
       <ul>
         <li>
-          <a href="/create">Create</a>
+          <Link href="/create">Create</Link>
         </li>
         <li>
-          <a href="/update">Update</a>
+          <Link href="/update">Update</Link>
         </li>
         <li>
-          <a href="/delete">Delete</a>
+          <Link href="/delete">Delete</Link>
         </li>
       </ul>
     </>
