@@ -1,25 +1,31 @@
-import Link from 'next/link';
-export default function Home(props) {
-  console.log('props', props)
+import Link from "next/link";
+import { useEffect, useState } from "react";
+export default function Layout({ children }) {
+  const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9999/topics")
+      .then((resp) => resp.json())
+      .then((result) => {
+        console.log("result :", result);
+        setTopics(result);
+      });
+  }, []);
+  // console.log("props", props);
+  const lis = topics.map((t) => {
+    return (
+      <li key={t.id}>
+        <Link href={"/read/" + t.id}>{t.title}</Link>
+      </li>
+    );
+  });
+
   return (
     <>
       <h1>
         <Link href="/">WEB</Link>
       </h1>
-      <ol>
-        <li>
-          <Link href="/read/1">HTML</Link>{" "}
-        </li>
-        <li>
-          <Link href="/read/2">CSS</Link>
-        </li>
-        <li>
-          <a href="/read/3">JavaScript</a>
-        </li>
-      </ol>
-      <article>
-        {props.children}
-      </article>
+      <ol>{lis}</ol>
+      <article>{children}</article>
       <ul>
         <li>
           <Link href="/create">Create</Link>
