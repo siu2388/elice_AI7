@@ -21,6 +21,19 @@ export default function Layout({ children }) {
       </li>
     );
   });
+  let contextUI = null;
+  if (router.query.id !== undefined) {
+    contextUI = (
+      <>
+        <li>
+          <Link href={`/update/${router.query.id}`}>Update</Link>
+        </li>
+        <li>
+          <Link href="/delete">Delete</Link>
+        </li>
+      </>
+    );
+  }
 
   return (
     <>
@@ -33,12 +46,7 @@ export default function Layout({ children }) {
         <li>
           <Link href="/create">Create</Link>
         </li>
-        <li>
-          <Link href="/update">Update</Link>
-        </li>
-        <li>
-          <Link href="/delete">Delete</Link>
-        </li>
+        {contextUI}
       </ul>
     </>
   );
