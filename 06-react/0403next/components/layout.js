@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useReducer, useState } from "react";
 export default function Layout({ children }) {
   const [topics, setTopics] = useState([]);
+  const router = useRouter();
+  console.log("router", router.asPath);
   useEffect(() => {
     fetch("http://localhost:9999/topics")
       .then((resp) => resp.json())
@@ -9,7 +12,7 @@ export default function Layout({ children }) {
         console.log("result :", result);
         setTopics(result);
       });
-  }, []);
+  }, [router.asPath]);
   // console.log("props", props);
   const lis = topics.map((t) => {
     return (
