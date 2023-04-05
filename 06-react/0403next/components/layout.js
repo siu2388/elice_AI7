@@ -29,7 +29,21 @@ export default function Layout({ children }) {
           <Link href={`/update/${router.query.id}`}>Update</Link>
         </li>
         <li>
-          <Link href="/delete">Delete</Link>
+          <button
+            onClick={(e) => {
+              fetch("http://localhost:9999/topics/" + router.query.id, {
+                method: "DELETE",
+              })
+                .then((response) => response.json())
+                .then((result) => {
+                  const last_id = result.id;
+                  router.push("/");
+                  console.log("delete complete");
+                });
+            }}
+          >
+            Delete
+          </button>
         </li>
       </>
     );
