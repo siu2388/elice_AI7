@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useReducer, useState } from "react";
+import Container from "@mui/material/Container";
+
 export default function Layout({ children }) {
   const [topics, setTopics] = useState([]);
   const router = useRouter();
@@ -50,7 +52,7 @@ export default function Layout({ children }) {
   }
 
   return (
-    <>
+    <Container maxWidth="md">
       <h1>
         <Link href="/">WEB</Link>
       </h1>
@@ -62,6 +64,6 @@ export default function Layout({ children }) {
         </li>
         {contextUI}
       </ul>
-    </>
+    </Container>
   );
 }
